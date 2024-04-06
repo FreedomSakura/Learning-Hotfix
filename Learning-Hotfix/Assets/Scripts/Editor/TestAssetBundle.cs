@@ -21,15 +21,21 @@ public class TestAssetBundle : MonoBehaviour
         AssetBundleBuild build = new AssetBundleBuild();
         build.assetBundleName = "ui";
         build.assetBundleVariant = "unity3d";
-        build.assetNames = new string[] { "Assets/Art/Prefabs/TestPanel.prefab", "Assets/Art/Textures/Tools/TestMulti.png"};
+        build.assetNames = new string[] { "Assets/Art/Prefabs/TestPanel.prefab"};
 
         AssetBundleBuild buildScene = new AssetBundleBuild();
         buildScene.assetBundleName = "Scene";
         buildScene.assetBundleVariant = "unity3d";
         buildScene.assetNames = new string[] { "Assets/Scenes/Start.unity",  };
 
+        AssetBundleBuild buildTexture = new AssetBundleBuild();
+        buildTexture.assetBundleName = "Textures";
+        buildTexture.assetBundleVariant = "unity3d";
+        buildTexture.assetNames = new string[] { "Assets/Art/Textures/Tools/Shovel.png", "Assets/Art/Textures/Tools/Hand.png", "Assets/Art/Textures/Tools/TestMulti.png" };
+
         builds.Add(build);
         builds.Add(buildScene);
+        builds.Add(buildTexture);
 
         BuildPipeline.BuildAssetBundles(outPath, builds.ToArray(), BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);
     }
