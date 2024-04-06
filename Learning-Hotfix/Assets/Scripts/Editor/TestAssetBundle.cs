@@ -16,6 +16,15 @@ public class TestAssetBundle : MonoBehaviour
             Directory.CreateDirectory(outPath);
         }
 
-        BuildPipeline.BuildAssetBundles(outPath, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);
+        List<AssetBundleBuild> builds = new List<AssetBundleBuild>();
+
+        AssetBundleBuild build = new AssetBundleBuild();
+        build.assetBundleName = "ui";
+        build.assetBundleVariant = "unity3d";
+        build.assetNames = new string[] { "Assets/Art/Prefabs/TestPanel.prefab", };
+
+        builds.Add(build);
+
+        BuildPipeline.BuildAssetBundles(outPath, builds.ToArray(), BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);
     }
 }
