@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2907022962
+CRC: 1574046688
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 54f85060aade97f06517dfc06f072d73
+    Hash: f12e3162afff7b8de5fd254fc699fb74
   TypeTreeHash:
     serializedVersion: 2
     Hash: 8f43f60e3846d0f68c7d9c8b03d7493d
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 54f85060aade97f06517dfc06f072d73
+    Hash: f12e3162afff7b8de5fd254fc699fb74
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -38,5 +38,6 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: UnityEngine.UI
   ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
 Assets:
+- Assets/Art/Textures/Tools/TestMulti.png
 - Assets/Art/Prefabs/TestPanel.prefab
 Dependencies: []

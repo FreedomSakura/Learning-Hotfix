@@ -21,7 +21,7 @@ public class TestAssetBundle : MonoBehaviour
         AssetBundleBuild build = new AssetBundleBuild();
         build.assetBundleName = "ui";
         build.assetBundleVariant = "unity3d";
-        build.assetNames = new string[] { "Assets/Art/Prefabs/TestPanel.prefab", };
+        build.assetNames = new string[] { "Assets/Art/Prefabs/TestPanel.prefab", "Assets/Art/Textures/Tools/TestMulti.png"};
 
         builds.Add(build);
 
