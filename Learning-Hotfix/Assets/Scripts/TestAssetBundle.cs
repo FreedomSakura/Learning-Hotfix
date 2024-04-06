@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using System.IO;
 
 public class TestAssetBundle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [MenuItem("AssetBundle/Build Windows")]
+    static void BuildAssetBundle()
     {
-        
-    }
+        string outPath = Application.streamingAssetsPath;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!Directory.Exists(outPath))
+        {
+            Directory.CreateDirectory(outPath);
+        }
+
+        BuildPipeline.BuildAssetBundles(outPath, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);
     }
 }
