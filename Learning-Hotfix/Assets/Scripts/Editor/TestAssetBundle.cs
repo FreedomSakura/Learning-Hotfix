@@ -31,7 +31,8 @@ public class TestAssetBundle : MonoBehaviour
         AssetBundleBuild buildTexture = new AssetBundleBuild();
         buildTexture.assetBundleName = "Textures";
         buildTexture.assetBundleVariant = "unity3d";
-        buildTexture.assetNames = new string[] { "Assets/Art/Textures/Tools/Shovel.png", "Assets/Art/Textures/Tools/Hand.png", "Assets/Art/Textures/Tools/TestMulti.png" };
+        buildTexture.assetNames = new string[] { "Assets/Art/Textures/Tools/Shovel.png", "Assets/Art/Textures/Tools/Hand.png",
+            "Assets/Art/Textures/Tools/TestMulti.png", "Assets/Art/Textures/Tools/Seed.png", "Assets/Art/Textures/Tools/ShowerHead.png",  };
 
         builds.Add(build);
         builds.Add(buildScene);

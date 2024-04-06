@@ -8,6 +8,16 @@ public class TestLoadAssetBundle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /// 加载依赖
+        AssetBundle dependon = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/StreamingAssets");
+        AssetBundleManifest assetBundleManifest = dependon.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+        // 加载目标ab包的所有依赖
+        string[] uiDependencies = assetBundleManifest.GetAllDependencies("ui.unity3d");
+        foreach (string dependency in uiDependencies)
+        {
+            AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/" + dependency);
+        }
+
         // 加载资源
         AssetBundle assetBundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/ui.unity3d");
 
