@@ -5,22 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class TestLoadAssetBundle : MonoBehaviour
 {
+    AssetBundle mAssetBundle;
     // Start is called before the first frame update
     void Start()
     {
         /// 加载依赖
         AssetBundle dependon = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/StreamingAssets");
+        
         AssetBundleManifest assetBundleManifest = dependon.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
-        // 加载目标ab包的所有依赖
-        string[] uiDependencies = assetBundleManifest.GetAllDependencies("ui.unity3d");
-        foreach (string dependency in uiDependencies)
-        {
-            AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/" + dependency);
-        }
+        //// 加载目标ab包的所有依赖
+        //string[] uiDependencies = assetBundleManifest.GetAllDependencies("ui.unity3d");
+        //foreach (string dependency in uiDependencies)
+        //{
+        //    AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/" + dependency);
+        //}
+
+        mAssetBundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/textures.unity3d");
+        mAssetBundle.LoadAllAssets();
 
         // 加载资源
         AssetBundle assetBundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/ui.unity3d");
-
+        
         if (assetBundle != null)
         {
             Debug.Log("加载成功！");
@@ -38,7 +43,15 @@ public class TestLoadAssetBundle : MonoBehaviour
           
         }
 
-       
+
+        StartCoroutine(UnLoadAssetBundle());
+    }
+
+    IEnumerator UnLoadAssetBundle()
+    {
+        yield return new WaitForSeconds(2);
+        // 卸载AssetBundle
+        mAssetBundle.Unload(true);
     }
 
     // Update is called once per frame
